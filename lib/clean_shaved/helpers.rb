@@ -10,18 +10,18 @@ module CleanShaved
 
       tmpl = capture(&block)
 
-      if ::Rails.env.development?
+      if CleanShaved.config.compile?
+        script_ type: 'text/javascript' do
+          "Handlebars.templates['#{name}'] = Handlebars.template(#{CleanShaved.compile(name, tmpl)});"
+            .gsub(/\s+/, ' ')
+        end
+      else
         options[:type] ||= "text/x-handlebars-template"
         options[:class] ||= "template"
         options[:name] ||= name
 
         script_(options) do
           tmpl
-        end
-      else
-        script_ type: 'text/javascript' do
-          "Handlebars.templates['#{name}'] = Handlebars.template(#{CleanShaved.compile(name, tmpl)});"
-            .gsub(/\s+/, ' ')
         end
       end
     end

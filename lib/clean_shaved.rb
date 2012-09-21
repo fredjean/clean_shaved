@@ -10,6 +10,10 @@ module CleanShaved
       CleanShaved.context.call("Handlebars.precompile", tmpl)
   end
 
+  def CleanShaved.config
+    @config ||= Config.new(true)
+  end
+
   private
   HANDLEBAR_PATH = File.expand_path("../../app/assets/javascripts/handlebars-1.0.rc.1.js", __FILE__)
 
@@ -22,5 +26,11 @@ module CleanShaved
 
   def CleanShaved.cache
     @cache ||= {}
+  end
+
+  class Config < Struct.new(:compile)
+    def compile?
+      compile
+    end
   end
 end
