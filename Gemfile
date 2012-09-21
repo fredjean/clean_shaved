@@ -8,5 +8,6 @@ gem "tagz"
 
 group :development do
   gem 'pry'
+  gem 'jquery-rails'
 end
 

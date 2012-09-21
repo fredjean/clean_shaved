@@ -1,1 +1,11 @@
-<h1>Hello World!</h1>
+<div id="greeting"></div>
+
+<%= template_for :test do %>
+  <h2>Hello, {{ message }}!</h2>
+<% end %>
+
+<script type="text/javascript">
+  jQuery(function() {
+    $("#greeting").html( Handlebars.templates.test({message: "World"}));
+  });
+</script>
