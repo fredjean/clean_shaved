@@ -3,8 +3,15 @@
 Gem::Specification.new do |s|
   s.authors = ["Frederic Jean"]
   s.name = "clean_shaved"
-  s.summary = "Insert CleanShaved summary."
-  s.description = "Insert CleanShaved description."
+  s.summary = <<-SUMMARY
+  CleanShaved makes the mustache disappear by doing the following:
+
+  * Provides a helper to make it easier to setup Handlebars templates
+  * Compiles the templates on the server to save precious client-side cycles
+
+  Enjoy a clean shave...
+  SUMMARY
+  s.description = "See the Mustache disappear"
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md"]
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 end
