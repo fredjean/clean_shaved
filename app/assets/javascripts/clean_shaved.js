@@ -8,8 +8,9 @@
 // Loads the Handlebars JS file.
 //= require 'handlebars-1.0.rc.1.js'
 
+Handlebars.templates = Handlebars.templates || {};
+
 jQuery(function() {
-  Handlebars.templates = Handlebars.templates || {};
 
   // Compiles the templates that are declared in development mode.
   $('[type*=x-handlebars-template]').each(function() {
